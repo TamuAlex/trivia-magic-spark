@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 import { QuizConfig, QuizState, ProcessedQuestion } from '@/lib/types';
 import { fetchQuizQuestions } from '@/lib/api';
-import { useToast } from '@/components/ui/toast';
+import { useToast } from '@/hooks/use-toast';
 
 const DEFAULT_CONFIG: QuizConfig = {
   amount: 5,

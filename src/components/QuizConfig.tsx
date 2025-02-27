@@ -1,9 +1,9 @@
 
 import { useState, useEffect } from 'react';
-import { Category, QuizConfig, Difficulty } from '@/lib/types';
+import type { Category, QuizConfig as QuizConfigType, Difficulty } from '@/lib/types';
 import { fetchCategories } from '@/lib/api';
 import { Button } from './Button';
-import { useToast } from '@/components/ui/toast';
+import { useToast } from '@/hooks/use-toast';
 import { 
   Select,
   SelectContent,
@@ -23,8 +23,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 interface QuizConfigProps {
-  config: QuizConfig;
-  onConfigChange: (config: Partial<QuizConfig>) => void;
+  config: QuizConfigType;
+  onConfigChange: (config: Partial<QuizConfigType>) => void;
   onStart: () => void;
 }
 
