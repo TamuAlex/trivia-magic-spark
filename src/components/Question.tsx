@@ -22,6 +22,7 @@ interface QuestionProps {
 export function Question({ question, onAnswer, showFeedback = false }: QuestionProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showingFeedback, setShowingFeedback] = useState(false);
+  const [answerSubmitted, setAnswerSubmitted] = useState(false);
   
   const handleSelectAnswer = (answer: string) => {
     if (showingFeedback) return;
@@ -33,10 +34,15 @@ export function Question({ question, onAnswer, showFeedback = false }: QuestionP
     
     if (showFeedback) {
       setShowingFeedback(true);
-      setTimeout(() => {
-        onAnswer(selectedAnswer);
-      }, 1500);
+      setAnswerSubmitted(true);
+      // We no longer auto-advance to the next question
     } else {
+      onAnswer(selectedAnswer);
+    }
+  };
+  
+  const handleNextQuestion = () => {
+    if (selectedAnswer) {
       onAnswer(selectedAnswer);
     }
   };
@@ -104,13 +110,22 @@ export function Question({ question, onAnswer, showFeedback = false }: QuestionP
         </div>
       </CardContent>
       <CardFooter>
-        <Button
-          onClick={handleSubmitAnswer}
-          disabled={!selectedAnswer || showingFeedback}
-          className="w-full"
-        >
-          {showingFeedback ? "Next Question..." : "Submit Answer"}
-        </Button>
+        {answerSubmitted && showingFeedback ? (
+          <Button
+            onClick={handleNextQuestion}
+            className="w-full"
+          >
+            Next Question
+          </Button>
+        ) : (
+          <Button
+            onClick={handleSubmitAnswer}
+            disabled={!selectedAnswer || showingFeedback}
+            className="w-full"
+          >
+            Submit Answer
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );
