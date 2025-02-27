@@ -6,6 +6,7 @@ import { QuizConfig } from "@/components/QuizConfig";
 import { Question } from "@/components/Question";
 import { Results } from "@/components/Results";
 import { motion, AnimatePresence } from "framer-motion";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   const { state, updateConfig, startQuiz, answerQuestion, resetQuiz } = useQuiz();
@@ -114,6 +115,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30 flex flex-col">
       {renderContent()}
+      <Toaster />
     </div>
   );
 };
