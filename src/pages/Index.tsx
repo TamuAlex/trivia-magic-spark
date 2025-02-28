@@ -53,7 +53,7 @@ const Index = () => {
                 </div>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                Trivia Magic
+                Generate Trivia
               </h1>
               <p className="text-xl text-muted-foreground max-w-md mx-auto">
                 Challenge yourself with trivia questions from various categories and difficulty levels
