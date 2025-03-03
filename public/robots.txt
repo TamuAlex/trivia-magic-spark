@@ -1,0 +1,21 @@
+# Reglas globales para todos los robots
+User-agent: *
+Allow: /
+
+# Evitar rastreo de páginas de administración o desarrollo
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /test/
+
+# Evitar rastreo de archivos específicos
+Disallow: /*.json$
+Disallow: /*.xml$
+# Excepción para el sitemap
+Allow: /sitemap.xml
+
+# Evitar rastreo de parámetros de URL irrelevantes
+Disallow: /*?ref=*
+Disallow: /*?source=*
+
+# Dirección del sitemap
+Sitemap: https://generatetrivia.com/sitemap.xml
