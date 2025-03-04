@@ -1,9 +1,10 @@
+
 import React, { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
-import QuizConfig from "@/components/QuizConfig";
-import Question from "@/components/Question";
-import Results from "@/components/Results";
+import { QuizConfig } from "@/components/QuizConfig";
+import { Question } from "@/components/Question";
+import { Results } from "@/components/Results";
 import { useQuiz } from "@/hooks/useQuiz";
 
 export default function Index() {
