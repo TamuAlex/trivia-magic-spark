@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import { useQuiz } from "@/hooks/useQuiz";
 import { Button } from "@/components/Button";
@@ -11,22 +10,20 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { QuizConfig as QuizConfigType } from "@/lib/types";
 
 const Index = () => {
-  const { state, updateConfig, startQuiz, answerQuestion, resetQuiz } = useQuiz();
+  const { state, updateConfig, startQuiz, answerQuestion, resetQuiz, getCategoryIdByName } = useQuiz();
   const [mounted, setMounted] = useState(false);
   const adContainerRef = useRef<HTMLDivElement>(null);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Parse URL parameters on initial load
   useEffect(() => {
     if (mounted) {
       const amount = searchParams.get('amount');
-      const category = searchParams.get('category');
+      const categoryName = searchParams.get('category');
       const difficulty = searchParams.get('difficulty');
       
       const newConfig: Partial<QuizConfigType> = {};
@@ -38,48 +35,36 @@ const Index = () => {
         }
       }
       
-      if (category) {
-        const parsedCategory = parseInt(category);
-        if (!isNaN(parsedCategory)) {
-          newConfig.category = parsedCategory;
-        }
+      if (categoryName) {
+        newConfig.categoryName = categoryName;
       }
       
       if (difficulty && ['easy', 'medium', 'hard'].includes(difficulty)) {
         newConfig.difficulty = difficulty as any;
       }
       
-      // Only update if we have parameters and we're in the idle state
       if (Object.keys(newConfig).length > 0 && state.status === 'idle') {
         updateConfig(newConfig);
-        // Start quiz if all parameters are present
-        if (amount && category && difficulty) {
+        if (amount && categoryName && difficulty) {
           startQuiz();
         }
       }
     }
-  }, [mounted, searchParams, updateConfig, startQuiz, state.status]);
+  }, [mounted, searchParams, updateConfig, startQuiz, state.status, getCategoryIdByName]);
 
-  // Update URL when quiz starts
   const handleStartQuiz = () => {
-    const { amount, category, difficulty } = state.config;
-    navigate(`/?amount=${amount}&category=${category}&difficulty=${difficulty}`, { replace: true });
+    const { amount, categoryName, difficulty } = state.config;
+    navigate(`/?amount=${amount}&category=${categoryName}&difficulty=${difficulty}`, { replace: true });
     startQuiz();
   };
 
-  // Reset URL when going back to menu
   const handleResetQuiz = () => {
     navigate('/', { replace: true });
     resetQuiz();
   };
 
-  // Effect to refresh ads when question changes
   useEffect(() => {
     if (state.status === 'active' && adContainerRef.current) {
-      // This is where you would call the Google AdSense refresh function
-      // For example: (window.adsbygoogle = window.adsbygoogle || []).push({});
-      
-      // Clear and recreate the ad container to simulate a refresh
       const container = adContainerRef.current;
       container.innerHTML = '';
       const adPlaceholder = document.createElement('div');
@@ -164,7 +149,6 @@ const Index = () => {
                 </motion.div>
               </AnimatePresence>
               
-              {/* Ad Container - Will refresh on question change */}
               <motion.div 
                 ref={adContainerRef}
                 className="w-full max-w-xl mt-8 overflow-hidden"

@@ -9,6 +9,7 @@ export type Difficulty = 'easy' | 'medium' | 'hard';
 export interface QuizConfig {
   amount: number;
   category: number;
+  categoryName: string; // Add the category name for URL usage
   difficulty: Difficulty;
 }
 
@@ -33,4 +34,5 @@ export interface QuizState {
   questions: ProcessedQuestion[];
   currentQuestionIndex: number;
   score: number;
+  categories: Category[]; // Add categories to state
 }
