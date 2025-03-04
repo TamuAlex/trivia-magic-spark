@@ -41,13 +41,12 @@ export default function Index() {
     <div className="container mx-auto px-4">
       <Header />
       
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto flex items-center justify-center min-h-[calc(100vh-200px)]">
         {state.status === 'idle' && (
           <QuizConfig
             config={state.config}
-            categories={state.categories}
             onConfigChange={updateConfig}
-            onStartQuiz={startQuizWithUrlUpdate}
+            onStart={startQuizWithUrlUpdate}
           />
         )}
 
@@ -58,8 +57,6 @@ export default function Index() {
         {state.status === 'active' && state.questions.length > 0 && (
           <Question
             question={state.questions[state.currentQuestionIndex]}
-            questionNumber={state.currentQuestionIndex + 1}
-            totalQuestions={state.config.amount}
             onAnswer={answerQuestion}
           />
         )}
@@ -69,6 +66,7 @@ export default function Index() {
             questions={state.questions}
             score={state.score}
             onReset={resetQuiz}
+            onPlayAgain={() => startQuiz()}
           />
         )}
       </div>
