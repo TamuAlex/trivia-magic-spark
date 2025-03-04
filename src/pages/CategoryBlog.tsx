@@ -121,10 +121,12 @@ export default function CategoryBlog() {
                       <p className="text-gray-600">{post.excerpt}</p>
                     </CardContent>
                     <CardFooter>
-                      <Button variant="outline" className="gap-2">
-                        <BookOpen className="h-4 w-4" />
-                        Read Article
-                      </Button>
+                      <Link to={`/blog/category/${categoryName}/${post.id}`}>
+                        <Button variant="outline" className="gap-2">
+                          <BookOpen className="h-4 w-4" />
+                          Read Article
+                        </Button>
+                      </Link>
                     </CardFooter>
                   </Card>
                 ))}
