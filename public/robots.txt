@@ -9,7 +9,6 @@ Disallow: /test/
 
 # Evitar rastreo de archivos específicos
 Disallow: /*.json$
-Disallow: /*.xml$
 # Excepción para el sitemap
 Allow: /sitemap.xml
 
