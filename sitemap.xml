@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -6,11 +7,129 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://generatetrivia.com/</loc>
-  <lastmod>2025-03-03T16:33:08+00:00</lastmod>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>1.0</priority>
 </url>
 
+<!-- General Knowledge -->
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=9&amp;difficulty=easy</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=9&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=9&amp;difficulty=hard</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+
+<!-- Entertainment -->
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=11&amp;difficulty=easy</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=11&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=11&amp;difficulty=hard</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<!-- Science -->
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=17&amp;difficulty=easy</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=17&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=17&amp;difficulty=hard</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<!-- Sports -->
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=21&amp;difficulty=easy</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=21&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=21&amp;difficulty=hard</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<!-- Geography -->
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=22&amp;difficulty=easy</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=22&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=22&amp;difficulty=hard</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<!-- History -->
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=23&amp;difficulty=easy</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=23&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=23&amp;difficulty=hard</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<!-- Different question amounts -->
+<url>
+  <loc>https://generatetrivia.com/?amount=10&amp;category=9&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=15&amp;category=9&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/?amount=20&amp;category=9&amp;difficulty=medium</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.7</priority>
+</url>
 
 </urlset>

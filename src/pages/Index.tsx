@@ -7,16 +7,71 @@ import { Question } from "@/components/Question";
 import { Results } from "@/components/Results";
 import { motion, AnimatePresence } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { QuizConfig as QuizConfigType } from "@/lib/types";
 
 const Index = () => {
   const { state, updateConfig, startQuiz, answerQuestion, resetQuiz } = useQuiz();
   const [mounted, setMounted] = useState(false);
   const adContainerRef = useRef<HTMLDivElement>(null);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Parse URL parameters on initial load
+  useEffect(() => {
+    if (mounted) {
+      const amount = searchParams.get('amount');
+      const category = searchParams.get('category');
+      const difficulty = searchParams.get('difficulty');
+      
+      const newConfig: Partial<QuizConfigType> = {};
+      
+      if (amount) {
+        const parsedAmount = parseInt(amount);
+        if (!isNaN(parsedAmount) && parsedAmount >= 1 && parsedAmount <= 20) {
+          newConfig.amount = parsedAmount;
+        }
+      }
+      
+      if (category) {
+        const parsedCategory = parseInt(category);
+        if (!isNaN(parsedCategory)) {
+          newConfig.category = parsedCategory;
+        }
+      }
+      
+      if (difficulty && ['easy', 'medium', 'hard'].includes(difficulty)) {
+        newConfig.difficulty = difficulty as any;
+      }
+      
+      // Only update if we have parameters and we're in the idle state
+      if (Object.keys(newConfig).length > 0 && state.status === 'idle') {
+        updateConfig(newConfig);
+        // Start quiz if all parameters are present
+        if (amount && category && difficulty) {
+          startQuiz();
+        }
+      }
+    }
+  }, [mounted, searchParams, updateConfig, startQuiz, state.status]);
+
+  // Update URL when quiz starts
+  const handleStartQuiz = () => {
+    const { amount, category, difficulty } = state.config;
+    navigate(`/?amount=${amount}&category=${category}&difficulty=${difficulty}`, { replace: true });
+    startQuiz();
+  };
+
+  // Reset URL when going back to menu
+  const handleResetQuiz = () => {
+    navigate('/', { replace: true });
+    resetQuiz();
+  };
 
   // Effect to refresh ads when question changes
   useEffect(() => {
@@ -64,7 +119,7 @@ const Index = () => {
               <QuizConfig 
                 config={state.config}
                 onConfigChange={updateConfig}
-                onStart={startQuiz}
+                onStart={handleStartQuiz}
               />
             </div>
           </div>
@@ -84,7 +139,7 @@ const Index = () => {
           <div className="w-full max-w-4xl mx-auto px-4 py-8">
             <div className="flex flex-col items-center">
               <div className="w-full mb-8 flex items-center justify-between">
-                <Button variant="ghost" onClick={resetQuiz}>
+                <Button variant="ghost" onClick={handleResetQuiz}>
                   ← Back to menu
                 </Button>
                 <div className="font-medium">
@@ -131,8 +186,8 @@ const Index = () => {
             <Results 
               questions={state.questions}
               score={state.score}
-              onPlayAgain={startQuiz}
-              onReset={resetQuiz}
+              onPlayAgain={handleStartQuiz}
+              onReset={handleResetQuiz}
             />
           </div>
         );
