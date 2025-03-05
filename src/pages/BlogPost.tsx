@@ -94,26 +94,22 @@ export default function BlogPost() {
       
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
-          {/* Add breadcrumbs */}
+          {/* Fixed breadcrumbs */}
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to="/">
+                <Link to="/" className="flex items-center">
                   <HomeIcon className="h-4 w-4 mr-1" />
                   Home
-                </BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to="/blog">
-                  Blog
-                </BreadcrumbLink>
+                <Link to="/blog">Blog</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink as={Link} to={`/blog/category/${categoryName}`}>
-                  {formattedCategoryName}
-                </BreadcrumbLink>
+                <Link to={`/blog/category/${categoryName}`}>{formattedCategoryName}</Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
