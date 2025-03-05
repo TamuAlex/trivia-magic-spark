@@ -17,13 +17,38 @@ export default function Blog() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Define specific categories to display
+  const specificCategories = [
+    "General Knowledge", 
+    "Entertainment", 
+    "Science", 
+    "Sport", 
+    "Geography", 
+    "Animals", 
+    "History", 
+    "Art"
+  ];
+
   useEffect(() => {
     const loadCategories = async () => {
       try {
         const fetchedCategories = await fetchCategories();
-        setCategories(fetchedCategories);
+        // Filter for our specific categories if they exist in the API response
+        // or create them if they don't exist
+        const filteredCategories = specificCategories.map(name => {
+          const existingCategory = fetchedCategories.find(
+            c => c.name.toLowerCase() === name.toLowerCase()
+          );
+          return existingCategory || { id: Math.random() * 1000, name };
+        });
+        setCategories(filteredCategories);
       } catch (error) {
         console.error("Failed to load categories:", error);
+        // Create fallback categories if API fails
+        setCategories(specificCategories.map((name, index) => ({ 
+          id: index + 1,
+          name
+        })));
       } finally {
         setLoading(false);
       }

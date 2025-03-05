@@ -10,6 +10,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectScrollUpButton,
+  SelectScrollDownButton,
 } from '@/components/ui/select';
 import { 
   Card,
@@ -38,7 +40,11 @@ export function QuizConfig({ config, onConfigChange, onStart }: QuizConfigProps)
       setIsLoading(true);
       try {
         const data = await fetchCategories();
-        setCategories(data);
+        // Sort categories alphabetically by name
+        const sortedCategories = [...data].sort((a, b) => 
+          a.name.localeCompare(b.name)
+        );
+        setCategories(sortedCategories);
       } catch (error) {
         toast({
           title: "Error",
@@ -92,13 +98,15 @@ export function QuizConfig({ config, onConfigChange, onStart }: QuizConfigProps)
             <SelectTrigger id="category" className="w-full">
               <SelectValue placeholder="Select a category" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="max-h-60">
+              <SelectScrollUpButton />
               <SelectItem value="0">Any Category</SelectItem>
               {categories.map((category) => (
                 <SelectItem key={category.id} value={category.id.toString()}>
                   {category.name}
                 </SelectItem>
               ))}
+              <SelectScrollDownButton />
             </SelectContent>
           </Select>
         </div>
@@ -113,9 +121,11 @@ export function QuizConfig({ config, onConfigChange, onStart }: QuizConfigProps)
               <SelectValue placeholder="Select difficulty" />
             </SelectTrigger>
             <SelectContent>
+              <SelectScrollUpButton />
               <SelectItem value="easy">Easy</SelectItem>
               <SelectItem value="medium">Medium</SelectItem>
               <SelectItem value="hard">Hard</SelectItem>
+              <SelectScrollDownButton />
             </SelectContent>
           </Select>
         </div>
