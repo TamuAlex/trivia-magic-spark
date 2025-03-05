@@ -2,8 +2,8 @@
 import { useParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { BlogNavigation } from "./blog/BlogNavigation";
-import { PostMeta } from "./blog/PostMeta";
-import { PostContent } from "./blog/PostContent";
+import { ArticleHeader } from "./blog/ArticleHeader";
+import { ArticleContent } from "./blog/ArticleContent";
 import { RelatedArticles } from "./blog/RelatedArticles";
 import { TestYourKnowledge } from "./blog/TestYourKnowledge";
 import { useBlogPost } from "./blog/hooks/useBlogPost";
@@ -31,16 +31,15 @@ export default function BlogPost() {
             </div>
           ) : blogPost && (
             <article>
-              <h1 className="text-4xl font-bold mb-6 text-gray-900">{blogPost.title}</h1>
-              
-              <PostMeta 
+              <ArticleHeader 
+                title={blogPost.title}
                 date={blogPost.date}
                 author={blogPost.author}
                 readTime={blogPost.readTime}
                 category={formattedCategoryName}
               />
               
-              <PostContent paragraphs={blogPost.content} />
+              <ArticleContent content={blogPost.content} />
               
               <RelatedArticles 
                 articles={blogPost.relatedArticles} 
