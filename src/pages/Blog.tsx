@@ -76,10 +76,10 @@ export default function Blog() {
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/">
+                <Link to="/" className="flex items-center">
                   <HomeIcon className="h-4 w-4 mr-1" />
                   Home
-                </BreadcrumbLink>
+                </Link>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>

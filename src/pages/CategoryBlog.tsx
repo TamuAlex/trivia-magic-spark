@@ -35,12 +35,10 @@ export default function CategoryBlog() {
   const [category, setCategory] = useState<Category | null>(null);
   const [loading, setLoading] = useState(true);
   
-  // Format the category name for display
   const formattedName = categoryName
     ? categoryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
     : '';
-  
-  // Generate blog posts for specific categories
+
   const generatePostsForCategory = (categoryName: string): BlogPost[] => {
     switch(categoryName) {
       case "general-knowledge":
@@ -180,7 +178,6 @@ export default function CategoryBlog() {
           }
         ];
       default:
-        // Default posts for any other category
         return [
           {
             id: 1,
@@ -225,7 +222,6 @@ export default function CategoryBlog() {
     loadCategory();
   }, [categoryName]);
 
-  // Get posts for the current category
   const categoryPosts = categoryName ? generatePostsForCategory(categoryName) : [];
 
   return (
@@ -234,7 +230,6 @@ export default function CategoryBlog() {
       
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          {/* Fixed breadcrumbs */}
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
