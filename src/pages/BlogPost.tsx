@@ -8,8 +8,16 @@ import {
   CardHeader
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowLeft, Clock, User, BookOpen, Tag } from "lucide-react";
+import { Calendar, ArrowLeft, Clock, User, BookOpen, Tag, HomeIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 interface BlogPostContent {
   title: string;
@@ -86,6 +94,34 @@ export default function BlogPost() {
       
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
+          {/* Add breadcrumbs */}
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink as={Link} to="/">
+                  <HomeIcon className="h-4 w-4 mr-1" />
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink as={Link} to="/blog">
+                  Blog
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink as={Link} to={`/blog/category/${categoryName}`}>
+                  {formattedCategoryName}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Article</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          
           <Link to={`/blog/category/${categoryName}`} className="inline-flex items-center text-primary hover:underline mb-8">
             <ArrowLeft className="h-4 w-4 mr-1" />
             Back to {formattedCategoryName} articles

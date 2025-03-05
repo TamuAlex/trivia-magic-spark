@@ -12,6 +12,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { Category } from "@/lib/types";
 import { fetchCategories } from "@/lib/api";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { HomeIcon } from "lucide-react";
 
 export default function Blog() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -63,6 +72,22 @@ export default function Blog() {
       
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
+          {/* Add breadcrumbs */}
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">
+                  <HomeIcon className="h-4 w-4 mr-1" />
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Blog</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          
           <div className="mb-10 text-center">
             <h1 className="text-4xl font-bold mb-4 text-gray-900">Trivia Knowledge Blog</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
