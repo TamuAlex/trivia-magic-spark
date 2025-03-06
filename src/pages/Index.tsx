@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -6,6 +5,8 @@ import { QuizConfig } from "@/components/QuizConfig";
 import { Question } from "@/components/Question";
 import { Results } from "@/components/Results";
 import { useQuiz } from "@/hooks/useQuiz";
+import { SEOHead } from "@/components/SEOHead";
+import { SitemapLinks } from "@/components/SitemapLinks";
 
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -39,7 +40,16 @@ export default function Index() {
 
   return (
     <div className="container mx-auto px-4">
+      <SEOHead
+        title="Generate Trivia - Your Ultimate Trivia Question Generator"
+        description="Create engaging trivia questions across various categories and difficulty levels. Perfect for quiz nights, educational activities, or casual learning."
+        canonicalUrl={searchParams.toString() ? `/?${searchParams.toString()}` : '/'}
+      />
+      
       <Header />
+      
+      {/* Hidden sitemap links for SEO */}
+      <SitemapLinks />
       
       <div className="max-w-4xl mx-auto flex items-center justify-center min-h-[calc(100vh-200px)]">
         {state.status === 'idle' && (
