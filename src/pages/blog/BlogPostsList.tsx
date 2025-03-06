@@ -24,35 +24,40 @@ export const BlogPostsList: React.FC<BlogPostsListProps> = ({ categoryName, post
     return (
       <div className="text-center py-12">
         <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em]"></div>
-        <p className="mt-4 text-gray-600">Loading content...</p>
+        <p className="mt-4 text-gray-600">Loading articles...</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6 mb-12">
+    <div className="space-y-8">
       {posts.map(post => (
-        <Card key={post.id} className="overflow-hidden hover:shadow-md transition-shadow">
+        <Card 
+          key={post.id} 
+          className="group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+        >
           <CardHeader>
-            <CardTitle className="text-2xl">{post.title}</CardTitle>
-            <CardDescription className="flex items-center gap-4 text-sm">
-              <span className="flex items-center">
-                <Calendar className="h-4 w-4 mr-1" />
+            <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+              {post.title}
+            </CardTitle>
+            <CardDescription className="flex items-center gap-4 text-sm mt-2">
+              <span className="flex items-center text-gray-600">
+                <Calendar className="h-4 w-4 mr-1 text-primary" />
                 {post.date}
               </span>
-              <span className="flex items-center">
-                <Clock className="h-4 w-4 mr-1" />
+              <span className="flex items-center text-gray-600">
+                <Clock className="h-4 w-4 mr-1 text-primary" />
                 {post.readTime}
               </span>
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600">{post.excerpt}</p>
+            <p className="text-gray-600 leading-relaxed">{post.excerpt}</p>
           </CardContent>
           <CardFooter>
             <Link to={`/blog/category/${categoryName}/${post.id}`}>
-              <Button variant="outline" className="gap-2">
-                <BookOpen className="h-4 w-4" />
+              <Button variant="outline" className="group-hover:bg-primary group-hover:text-white transition-colors">
+                <BookOpen className="h-4 w-4 mr-2" />
                 Read Article
               </Button>
             </Link>
