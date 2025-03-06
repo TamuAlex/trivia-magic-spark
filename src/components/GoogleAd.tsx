@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 
 declare global {
@@ -7,86 +8,60 @@ declare global {
 }
 
 export function GoogleAd() {
-  const adRef = useRef<HTMLDivElement>(null);
+  const adContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log('🔍 GoogleAd: Component mounted, starting ad initialization...');
+    // Initialize adsbygoogle if it doesn't exist
+    if (!window.adsbygoogle) {
+      window.adsbygoogle = [];
+    }
 
-    try {
-      // Check if AdSense script is already loaded
-      const existingScript = document.querySelector('script[src*="adsbygoogle.js"]');
-      console.log('🔍 GoogleAd: Checking existing AdSense script:', {
-        exists: !!existingScript,
-        src: existingScript?.getAttribute('src')
-      });
-
-      // Create and append the AdSense script if it doesn't exist
-      if (!existingScript) {
-        const script1 = document.createElement('script');
-        script1.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024";
-        script1.async = true;
-        script1.crossOrigin = "anonymous";
-        document.head.appendChild(script1);
-        console.log('✅ GoogleAd: AdSense script added to document');
-
-        script1.onload = () => {
-          console.log('✅ GoogleAd: AdSense script loaded successfully');
-          initializeAd();
-        };
-
-        script1.onerror = (error) => {
-          console.error('❌ GoogleAd: Error loading AdSense script:', error);
-        };
-      } else {
-        // If script already exists, initialize ad directly
-        initializeAd();
+    // Function to load and initialize the ad
+    const loadAd = () => {
+      try {
+        console.log('Pushing ad to adsbygoogle');
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        console.log('Ad push completed');
+      } catch (error) {
+        console.error('Error initializing ad:', error);
       }
+    };
 
-    } catch (error) {
-      console.error('❌ GoogleAd: Critical error during initialization:', error);
+    // Check if AdSense script exists
+    const existingScript = document.querySelector('script[src*="adsbygoogle.js"]');
+    
+    if (!existingScript) {
+      // Create and append the script if it doesn't exist
+      console.log('AdSense script not found, creating new script');
+      const script = document.createElement('script');
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024";
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      
+      script.onload = () => {
+        console.log('AdSense script loaded successfully');
+        loadAd();
+      };
+      
+      script.onerror = (error) => {
+        console.error('Error loading AdSense script:', error);
+      };
+      
+      document.head.appendChild(script);
+    } else {
+      // If script already exists, just load the ad
+      console.log('AdSense script already exists, loading ad directly');
+      loadAd();
     }
 
-    function initializeAd() {
-      // Wait a bit to ensure container is ready
-      setTimeout(() => {
-        if (adRef.current) {
-          console.log('🔍 GoogleAd: Container ready, pushing ad...');
-          try {
-            // Initialize adsbygoogle if needed
-            if (!window.adsbygoogle) {
-              window.adsbygoogle = [];
-            }
-            
-            // Push the ad
-            window.adsbygoogle.push({});
-            console.log('✅ GoogleAd: Ad push successful');
-
-            // Monitor ad container
-            const computedStyle = window.getComputedStyle(adRef.current);
-            console.log('🔍 GoogleAd: Ad container status:', {
-              width: computedStyle.width,
-              height: computedStyle.height,
-              display: computedStyle.display,
-              visibility: computedStyle.visibility
-            });
-          } catch (error) {
-            console.error('❌ GoogleAd: Error pushing ad:', error);
-          }
-        } else {
-          console.error('❌ GoogleAd: Container not ready');
-        }
-      }, 100); // Small delay to ensure container is rendered
-    }
-
-    // Cleanup on unmount
     return () => {
-      console.log('🔍 GoogleAd: Component unmounting...');
+      // Cleanup function (if needed)
+      console.log('GoogleAd component unmounted');
     };
   }, []);
 
   return (
-    <div ref={adRef} className="w-full flex justify-center my-4">
-      {/* Prueba1 */}
+    <div ref={adContainerRef} className="w-full flex justify-center my-6">
       <ins
         className="adsbygoogle"
         style={{
@@ -101,4 +76,4 @@ export function GoogleAd() {
       />
     </div>
   );
-} 
+}

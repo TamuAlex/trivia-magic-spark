@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
@@ -91,6 +92,11 @@ export default function Index() {
             <GoogleAd />
           </>
         )}
+      </div>
+      
+      {/* Add an extra ad at the bottom of the page */}
+      <div className="mt-8 mb-12">
+        <GoogleAd />
       </div>
     </div>
   );
