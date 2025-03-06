@@ -1,20 +1,33 @@
-# Reglas globales para todos los robots
+# Allow all robots to crawl the site
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /blog
+Allow: /blog/*
 
-# Evitar rastreo de páginas de administración o desarrollo
+# Prevent crawling of development and admin areas
 Disallow: /admin/
 Disallow: /dev/
 Disallow: /test/
 
-# Evitar rastreo de archivos específicos
+# Allow specific file types
+Allow: /*.html$
+Allow: /*.xml$
+
+# Prevent crawling of certain file types
 Disallow: /*.json$
-# Excepción para el sitemap
-Allow: /sitemap.xml
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.map$
 
-# Evitar rastreo de parámetros de URL irrelevantes
-Disallow: /*?ref=*
-Disallow: /*?source=*
+# Prevent crawling of query parameters except specific ones
+Allow: /*?amount=*
+Allow: /*?category=*
+Allow: /*?difficulty=*
+Disallow: /*?*
 
-# Dirección del sitemap
+# Specify crawl delay to prevent server overload
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://generatetrivia.com/sitemap.xml
