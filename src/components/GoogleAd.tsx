@@ -28,11 +28,16 @@ export function GoogleAd() {
   }, []);
 
   return (
-    <div className="w-full flex justify-center my-4">
+    <div className="w-full flex justify-center my-4" style={{ minWidth: '300px', maxWidth: '970px', margin: '0 auto' }}>
       {/* Prueba1 */}
       <ins
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        style={{
+          display: 'block',
+          width: '100%',
+          minHeight: '280px',
+          backgroundColor: '#f8f9fa'
+        }}
         data-ad-client="ca-pub-8823992623303024"
         data-ad-slot="7080403920"
         data-ad-format="auto"
