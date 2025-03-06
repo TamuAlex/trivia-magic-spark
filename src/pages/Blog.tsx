@@ -1,11 +1,12 @@
-
 import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
+import { SEOHead } from "@/components/SEOHead";
 import { Category } from "@/lib/types";
 import { fetchCategories } from "@/lib/api";
 import { BlogNavigation } from "./blog/BlogNavigation";
 import { CategoryList } from "./blog/CategoryList";
 import { NewsletterSignup } from "./blog/NewsletterSignup";
+import { BlogCategories } from "@/components/BlogCategories";
 
 export default function Blog() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -52,25 +53,35 @@ export default function Blog() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="container mx-auto px-4">
+      <SEOHead
+        title="Blog | Generate Trivia - Explore Our Trivia Knowledge Base"
+        description="Discover fascinating trivia articles, quiz tips, and in-depth knowledge across various categories. Stay updated with our latest trivia content and improve your quiz game."
+        canonicalUrl="/blog"
+      />
+      
       <Header />
       
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          <BlogNavigation />
-          
-          <div className="mb-10 text-center">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900">Trivia Knowledge Blog</h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore fascinating articles, tips, and resources organized by category to enhance your trivia knowledge.
-            </p>
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-4xl mx-auto">
+            <BlogNavigation />
+            
+            <div className="mb-10 text-center">
+              <h1 className="text-4xl font-bold mb-4 text-gray-900">Trivia Knowledge Blog</h1>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Explore fascinating articles, tips, and resources organized by category to enhance your trivia knowledge.
+              </p>
+            </div>
+            
+            <CategoryList categories={categories} loading={loading} />
+            
+            <NewsletterSignup />
           </div>
-          
-          <CategoryList categories={categories} loading={loading} />
-          
-          <NewsletterSignup />
         </div>
       </div>
+      
+      <BlogCategories />
     </div>
   );
 }

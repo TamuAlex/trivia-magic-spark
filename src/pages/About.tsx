@@ -1,10 +1,16 @@
-
 import { Header } from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SEOHead } from "@/components/SEOHead";
 
 export default function About() {
   return (
     <div className="container mx-auto px-4">
+      <SEOHead
+        title="About Us | Generate Trivia - Your Ultimate Trivia Question Generator"
+        description="Learn about Generate Trivia, your go-to platform for creating engaging quiz experiences across various categories. Discover our mission and the technology behind our trivia generator."
+        canonicalUrl="/about"
+      />
+      
       <Header />
       
       <Card className="max-w-3xl mx-auto">

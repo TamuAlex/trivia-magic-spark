@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { getArticleBySlug } from "@/articles";
@@ -11,6 +10,7 @@ import {
   BreadcrumbSeparator, 
   BreadcrumbPage 
 } from "@/components/ui/breadcrumb";
+import { SEOHead } from "@/components/SEOHead";
 
 export default function Article() {
   const { category, slug } = useParams<{ category: string; slug: string }>();
@@ -41,6 +41,13 @@ export default function Article() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <SEOHead
+        title={`${category?.charAt(0).toUpperCase()}${category?.slice(1)} Trivia | Generate Trivia`}
+        description={`Explore our comprehensive guide about ${category} trivia. Learn interesting facts, quiz tips, and enhance your knowledge in ${category}.`}
+        canonicalUrl={`/blog/${category}/${slug}`}
+        type="article"
+      />
+      
       <Header />
       
       <div className="container mx-auto px-4 py-12">
