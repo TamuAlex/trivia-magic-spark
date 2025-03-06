@@ -67,7 +67,7 @@ export const article = {
                 <li>Appreciate the context behind current global events</li>
             </ul>
 
-            <a href="https://generatetrivia.com" class="cta-button" target="_blank">Generate History Trivia Now!</a>
+            <a href="https://generatetrivia.com" class="cta-button" target="_blank">Free Trivia Generator</a>
         </section>
 
         <section>

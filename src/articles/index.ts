@@ -5,6 +5,7 @@ import { article as sportArticle } from './sport/olympic-history';
 import { article as geographyArticle } from './geography/world-wonders';
 import { article as animalsArticle } from './animals/endangered-species';
 import { article as historyArticle } from './history/ancient-civilizations';
+import { article as historyTriviaGenerator } from './history/history-trivia-generator';
 import { article as artArticle } from './art/renaissance-masters';
 
 export interface Article {
@@ -23,6 +24,7 @@ const allArticles: Article[] = [
   geographyArticle,
   animalsArticle,
   historyArticle,
+  historyTriviaGenerator,
   artArticle
 ];
 
