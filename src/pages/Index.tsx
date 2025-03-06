@@ -60,11 +60,17 @@ export default function Index() {
       
       <div className="max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
         {state.status === 'idle' && (
-          <QuizConfig
-            config={state.config}
-            onConfigChange={updateConfig}
-            onStart={startQuizWithUrlUpdate}
-          />
+          <>
+            <QuizConfig
+              config={state.config}
+              onConfigChange={updateConfig}
+              onStart={startQuizWithUrlUpdate}
+            />
+            {/* Place ad after quiz config */}
+            <div className="w-full mt-8">
+              <GoogleAd />
+            </div>
+          </>
         )}
 
         {state.status === 'loading' && (
@@ -77,7 +83,9 @@ export default function Index() {
               question={state.questions[state.currentQuestionIndex]}
               onAnswer={handleAnswer}
             />
-            <GoogleAd />
+            <div className="w-full mt-8">
+              <GoogleAd />
+            </div>
           </>
         )}
 
@@ -89,7 +97,9 @@ export default function Index() {
               onReset={resetQuiz}
               onPlayAgain={() => startQuiz()}
             />
-            <GoogleAd />
+            <div className="w-full mt-8">
+              <GoogleAd />
+            </div>
           </>
         )}
       </div>
