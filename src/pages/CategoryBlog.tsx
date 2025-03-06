@@ -19,19 +19,23 @@ export default function CategoryBlog() {
           <BlogNavigation categoryName={categoryName} />
           
           <div className="mb-10">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900">{formattedName} Trivia</h1>
-            <p className="text-lg text-gray-600">
+            <h1 className="text-4xl font-bold mb-4 text-gray-900 animate-fade-in">{formattedName} Trivia</h1>
+            <p className="text-lg text-gray-600 animate-slide-up">
               Explore our collection of articles, guides and resources about {formattedName.toLowerCase()} trivia.
             </p>
           </div>
           
-          <BlogPostsList 
-            categoryName={categoryName} 
-            posts={categoryPosts} 
-            loading={loading} 
-          />
+          <div className="card-glass p-8 mb-12 border border-gray-100 shadow-sm">
+            <BlogPostsList 
+              categoryName={categoryName} 
+              posts={categoryPosts} 
+              loading={loading} 
+            />
+          </div>
           
-          <QuizPrompt categoryName={formattedName} />
+          <div className="animate-slide-up">
+            <QuizPrompt categoryName={formattedName} />
+          </div>
         </div>
       </div>
     </div>

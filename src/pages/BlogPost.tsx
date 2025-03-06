@@ -30,7 +30,7 @@ export default function BlogPost() {
               <p className="mt-4 text-gray-600">Loading article...</p>
             </div>
           ) : blogPost && (
-            <article>
+            <article className="card-glass p-8 border border-gray-100 shadow-sm animate-fade-in">
               <ArticleHeader 
                 title={blogPost.title}
                 date={blogPost.date}
@@ -41,12 +41,16 @@ export default function BlogPost() {
               
               <ArticleContent content={blogPost.content} />
               
-              <RelatedArticles 
-                articles={blogPost.relatedArticles} 
-                categoryName={categoryName || ''} 
-              />
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <RelatedArticles 
+                  articles={blogPost.relatedArticles} 
+                  categoryName={categoryName || ''} 
+                />
+              </div>
               
-              <TestYourKnowledge categoryName={formattedCategoryName} />
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <TestYourKnowledge categoryName={formattedCategoryName} />
+              </div>
             </article>
           )}
         </div>
