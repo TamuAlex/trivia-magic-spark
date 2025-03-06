@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Static Pages -->
+<url>
+  <loc>https://generatetrivia.com/</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>1.0</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/about</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<!-- Blog Categories -->
+<url>
+  <loc>https://generatetrivia.com/blog/history</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/science</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/entertainment</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.7</priority>
+</url>
+
+<!-- Blog Articles - History -->
+<url>
+  <loc>https://generatetrivia.com/blog/history/harness-the-power-of-history-trivia</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/history/ancient-civilizations-quiz-guide</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/history/world-wars-trivia-collection</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<!-- Blog Articles - Science -->
+<url>
+  <loc>https://generatetrivia.com/blog/science/ultimate-science-quiz-guide</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/science/space-exploration-trivia</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/science/biology-quiz-essentials</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<!-- Blog Articles - Entertainment -->
+<url>
+  <loc>https://generatetrivia.com/blog/entertainment/movie-trivia-masterclass</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/entertainment/tv-shows-quiz-collection</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/blog/entertainment/music-history-quiz-guide</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
+
+<!-- Trivia Generator URLs -->
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=general-knowledge&amp;difficulty=easy</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.5</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=history&amp;difficulty=medium</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.5</priority>
+</url>
+
+<url>
+  <loc>https://generatetrivia.com/?amount=5&amp;category=science-nature&amp;difficulty=hard</loc>
+  <lastmod>2025-03-06T16:33:08+00:00</lastmod>
+  <priority>0.5</priority>
+</url>
+
+<!-- Add more trivia generator URLs as needed -->
+
+</urlset> 

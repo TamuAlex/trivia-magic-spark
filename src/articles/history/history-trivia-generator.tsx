@@ -1,5 +1,5 @@
 export const article = {
-  id: 71,
+  id: 72,
   title: "History Trivia Generator",
   slug: "history-trivia-generator",
   category: "history",
@@ -75,6 +75,8 @@ export const article = {
     }
     .content-section { margin-bottom: 40px; }
   </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024"
+     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -95,6 +97,17 @@ export const article = {
         </a>
       </div>
     </section>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8823992623303024"
+     data-ad-slot="9657362154"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
     
     <section class="content-section">
       <h2>Why Use a History Trivia Generator?</h2>

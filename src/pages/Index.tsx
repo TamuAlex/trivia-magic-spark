@@ -7,6 +7,7 @@ import { Results } from "@/components/Results";
 import { useQuiz } from "@/hooks/useQuiz";
 import { SEOHead } from "@/components/SEOHead";
 import { SitemapLinks } from "@/components/SitemapLinks";
+import { GoogleAd } from "@/components/GoogleAd";
 
 export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,6 +39,11 @@ export default function Index() {
     startQuiz();
   };
 
+  // Handle answer and refresh ad
+  const handleAnswer = (answer: string) => {
+    answerQuestion(answer);
+  };
+
   return (
     <div className="container mx-auto px-4">
       <SEOHead
@@ -51,7 +57,7 @@ export default function Index() {
       {/* Hidden sitemap links for SEO */}
       <SitemapLinks />
       
-      <div className="max-w-4xl mx-auto flex items-center justify-center min-h-[calc(100vh-200px)]">
+      <div className="max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
         {state.status === 'idle' && (
           <QuizConfig
             config={state.config}
@@ -65,19 +71,26 @@ export default function Index() {
         )}
 
         {state.status === 'active' && state.questions.length > 0 && (
-          <Question
-            question={state.questions[state.currentQuestionIndex]}
-            onAnswer={answerQuestion}
-          />
+          <>
+            <Question
+              question={state.questions[state.currentQuestionIndex]}
+              onAnswer={handleAnswer}
+            />
+            {/* Ad refreshes with each question using currentQuestionIndex as refreshKey */}
+            <GoogleAd refreshKey={state.currentQuestionIndex} />
+          </>
         )}
 
         {state.status === 'completed' && state.questions.length > 0 && (
-          <Results
-            questions={state.questions}
-            score={state.score}
-            onReset={resetQuiz}
-            onPlayAgain={() => startQuiz()}
-          />
+          <>
+            <Results
+              questions={state.questions}
+              score={state.score}
+              onReset={resetQuiz}
+              onPlayAgain={() => startQuiz()}
+            />
+            <GoogleAd refreshKey="completed" />
+          </>
         )}
       </div>
     </div>
