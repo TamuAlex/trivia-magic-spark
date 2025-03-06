@@ -10,6 +10,84 @@
   <lastmod>2025-03-04T16:33:08+00:00</lastmod>
   <priority>1.0</priority>
 </url>
+<!-- Blog -->
+<url>
+  <loc>https://generatetrivia.com/blog</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/history</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/history/history-trivia-questions</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/history/history-trivia-generator</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/general</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/general/trivia-tips</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/entretainment</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/entertainment/movie-trivia</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/science</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/entertainment/movie-trivia</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/sport</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/geography</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/animals</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>https://generatetrivia.com/blog/art</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+
+<!-- About -->
+<url>
+  <loc>https://generatetrivia.com/about</loc>
+  <lastmod>2025-03-04T16:33:08+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
 
 <!-- General Knowledge -->
 <url>
