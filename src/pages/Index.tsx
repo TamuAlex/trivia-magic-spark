@@ -76,8 +76,7 @@ export default function Index() {
               question={state.questions[state.currentQuestionIndex]}
               onAnswer={handleAnswer}
             />
-            {/* Ad refreshes with each question using currentQuestionIndex as refreshKey */}
-            <GoogleAd refreshKey={state.currentQuestionIndex} />
+            <GoogleAd />
           </>
         )}
 
@@ -89,7 +88,7 @@ export default function Index() {
               onReset={resetQuiz}
               onPlayAgain={() => startQuiz()}
             />
-            <GoogleAd refreshKey="completed" />
+            <GoogleAd />
           </>
         )}
       </div>
