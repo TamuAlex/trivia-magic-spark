@@ -67,8 +67,7 @@ export default function Index() {
               onStart={startQuizWithUrlUpdate}
             />
             {/* Place ad after quiz config */}
-            <div className="w-full mt-8">
-              <GoogleAd />
+            <div className="w-full mt-8" dangerouslySetInnerHTML={{ __html: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8823992623303024" data-ad-slot="7080403920" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({});</script>' }}>
             </div>
           </>
         )}
@@ -83,8 +82,7 @@ export default function Index() {
               question={state.questions[state.currentQuestionIndex]}
               onAnswer={handleAnswer}
             />
-            <div className="w-full mt-8">
-              <GoogleAd />
+            <div className="w-full mt-8" dangerouslySetInnerHTML={{ __html: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8823992623303024" data-ad-slot="7080403920" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({});</script>' }}>
             </div>
           </>
         )}
@@ -97,17 +95,15 @@ export default function Index() {
               onReset={resetQuiz}
               onPlayAgain={() => startQuiz()}
             />
-            <div className="w-full mt-8">
-              <GoogleAd />
+            <div className="w-full mt-8" dangerouslySetInnerHTML={{ __html: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8823992623303024" data-ad-slot="7080403920" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({});</script>' }}>
             </div>
           </>
         )}
       </div>
       
       {/* Add an extra ad at the bottom of the page */}
-      <div className="mt-8 mb-12">
-        <GoogleAd />
-      </div>
+      <div className="w-full mt-8" dangerouslySetInnerHTML={{ __html: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8823992623303024" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8823992623303024" data-ad-slot="7080403920" data-ad-format="auto" data-full-width-responsive="true"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({});</script>' }}>
+            </div>
     </div>
   );
 }
